@@ -40,23 +40,23 @@ else {
 	echo "<form class='form-group' method='get' action='registration.php'>";
 	
 	echo '<div class="form-group">';
-	echo "<input class='form-control' type='text' name='f_name' placeholder='Име...'></div>";
+	echo "<input class='form-control' type='text' name='f_name' placeholder='Име...' required='requaired'></div>";
 	
 		
 	echo '<div class="form-group">';
-	echo "<input class='form-control' type='text' name='l_name' placeholder='Фамилия...'>";
+	echo "<input class='form-control' type='text' name='l_name' placeholder='Фамилия...' required='requaired'>";
 	echo '</div>';
 	
 	echo '<div class="form-group">';
-	echo "<input  class='form-control' type='text' name='user_name' placeholder='потребилско име...'>";
+	echo "<input  class='form-control' type='text' name='user_name' placeholder='потребилско име...' required='requaired'>";
 	echo '</div>';
 
 	echo '<div class="form-group">';
-	echo "<input class='form-control' type='password' name='password' placeholder='парола...'>";
+	echo "<input class='form-control' type='password' name='password' placeholder='парола...' required='requaired'>";
 	echo '</div>';
 
 	echo '<div class="form-group">';
-	echo "<input class='btn btn-warning' type='submit' name='submit' value='Регистрация'>";
+	echo "<input class='btn btn-primary btn-block' type='submit' name='submit' value='Регистрация'>";
 	echo '</div>';
 
 	echo "</form>";
