@@ -2,14 +2,12 @@
 include('connections/connecting.php');
 if(isset($_GET['submit'])){
 $song_name = $_GET['song_name'];
-$date_input=date('d/m/y');
-$time_input=date('H:i:s');
 $insert_query = 	"INSERT INTO songs (song_name,date_input,time_input) 
-						VALUES ('$song_name','$date_input','$time_input')";
+						VALUES ('$song_name',,CURRENT_DATE(), CURRENT_TIME())";
 			
 			$insert_result= mysqli_query($conn, $insert_query);
 			if ($insert_result) {
-				echo " Вие успешно качихте вашата песен в iTunes! $time_input";
+				echo " Вие успешно качихте вашата песен в iTunes!";
 			
 			}else{
 				echo "Неуспешно качване! Моля опитайте по-късно!";
