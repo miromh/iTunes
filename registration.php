@@ -21,8 +21,11 @@ if(isset($_GET['submit'])){
 	$user_name = $_GET['user_name'];
 	
 	$password = md5($_GET['password']);//кеширане на паролата
-	$insert_query = 	"INSERT INTO registration (f_name,l_name,user_name,password) 
-						VALUES ('$f_name','$l_name','$user_name','$password')";
+	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+	// проверка дали е валиден имейла(премахва неочаквани символи като: <,>,?,#,!, и т.н.)
+	if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+	$insert_query = 	"INSERT INTO registration (f_name,l_name,user_name,password,email) 
+						VALUES ('$f_name','$l_name','$user_name','$password','$email')";
 			
 			$insert_result= mysqli_query($conn, $insert_query);
 			if ($insert_result) {
@@ -30,8 +33,11 @@ if(isset($_GET['submit'])){
 			
 			}else{
 				echo "Неуспешна регистрация! Моля опитайте по-късно!";
+					
+	}}else{
+	$Error ="Invalid Email Format....!!!!";
+	}
 			
-			}
 
 }
 else {//форма за регистрация
