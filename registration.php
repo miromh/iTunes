@@ -24,7 +24,8 @@ if(isset($_GET['submit'])){
 	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 	// проверка дали е валиден имейла(премахва неочаквани символи като: <,>,?,#,!, и т.н.)
 		if (((strlen($f_name)<3) || (strlen ($f_name) > 50)) || ( (strlen($l_name) <3)  ||(strlen ($l_name) > 50)) || ( (strlen($user_name)<6) || (strlen ($user_name) > 50)) || ( (strlen($password) <6)  ||(strlen ($password) > 50)) )
-	{ 
+	//Проверка на дължината на стринговете
+		{ 
 	die(" Невалиднo попълнена форма! "); 
 	} else {
 			echo $f_name.' '.$l_name; 
