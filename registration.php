@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Регистрация</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 
@@ -20,7 +20,7 @@ if(isset($_GET['submit'])){
 	$l_name = $_GET['l_name'];
 	$user_name = $_GET['user_name'];
 	
-	$password = $_GET['password'];
+	$password = md5($_GET['password']);//кеширане на паролата
 	$insert_query = 	"INSERT INTO registration (f_name,l_name,user_name,password) 
 						VALUES ('$f_name','$l_name','$user_name','$password')";
 			
@@ -34,7 +34,7 @@ if(isset($_GET['submit'])){
 			}
 
 }
-else {
+else {//форма за регистрация
 	echo '<div class="col-md-2">';
 	
 	echo "<form class='form-group' method='get' action='registration.php'>";
