@@ -3,7 +3,7 @@ include('connections/connecting.php');
 if(isset($_GET['submit'])){
 $song_name = $_GET['song_name'];
 $date_input=date('d/m/y');
-$time_input=date('h:i:sa');
+$time_input=date('H:i:s');
 $insert_query = 	"INSERT INTO songs (song_name,date_input,time_input) 
 						VALUES ('$song_name','$date_input','$time_input')";
 			
