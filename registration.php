@@ -23,6 +23,26 @@ if(isset($_GET['submit'])){
 	$password = md5($_GET['password']);//кеширане на паролата
 	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 	// проверка дали е валиден имейла(премахва неочаквани символи като: <,>,?,#,!, и т.н.)
+		if ( (strlen($f_name)<3) || (strlen ($f_name) > 50)) 
+	{ 
+	die(" Невалидно име! Попълнете формата коректно! "); 
+	} 
+	if ( (strlen($l_name) <5)  ||(strlen ($l_name) > 50)) 
+	{ 
+	die(" Невалидна фамилия! Попълнете формата коректно! "); 
+	} 
+		else 
+	{ 
+		echo ' '.$l_name; 
+	}
+	if ( (strlen($user_name)<6) || (strlen ($user_name) > 50)) 
+	{ 
+	die(" Невалидно потребителско име!  Попълнете формата коректно!"); 
+	} 
+	if ( (strlen($password) <6)  ||(strlen ($l_name) > 50)) 
+	{ 
+	die(" Невалидна парола! Попълнете формата коректно! "); 
+	} 
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)){
 	$insert_query = 	"INSERT INTO registration (f_name,l_name,user_name,password,email) 
 						VALUES ('$f_name','$l_name','$user_name','$password','$email')";
@@ -46,19 +66,19 @@ else {//форма за регистрация
 	echo "<form class='form-group' method='get' action='registration.php'>";
 	
 	echo '<div class="form-group">';
-	echo "<input class='form-control' type='text' name='f_name' placeholder='Име...' required='requaired' minlength='3'></div>";
+	echo "<input class='form-control' type='text' name='f_name' placeholder='Име...' required='requaired' ></div>";
 	
 		
 	echo '<div class="form-group">';
-	echo "<input class='form-control' type='text' name='l_name' placeholder='Фамилия...' required='requaired' minlength='5'>";
+	echo "<input class='form-control' type='text' name='l_name' placeholder='Фамилия...' required='requaired' >";
 	echo '</div>';
 	
 	echo '<div class="form-group">';
-	echo "<input  class='form-control' type='text' name='user_name' placeholder='потребилско име...' required='requaired' minlength='5'>";
+	echo "<input  class='form-control' type='text' name='user_name' placeholder='потребилско име...' required='requaired' >";
 	echo '</div>';
 
 	echo '<div class="form-group">';
-	echo "<input class='form-control' type='password' name='password' placeholder='парола...' required='requaired'minlength='6'>";
+	echo "<input class='form-control' type='password' name='password' placeholder='парола...' required='requaired'>";
 	echo '</div>';
 
 	echo '<div class="form-group">';
