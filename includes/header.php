@@ -8,13 +8,16 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+<link rel="stylesheet" type="text/css" media="all" href="audio_player/css/styles.css">
+<script type="text/javascript" src="audio_player/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="audio_player/js/mediaelement-and-player.min.js"></script>
 </head>
 
 <style type="text/css" media="screen">
 	body{
-		/*background-image: url("images/bg.jpg");
+		background-image: url("images/bg.jpg");
 		background-repeat: no-repeat;
-		background-position: top;*/
+		background-position: top;
 	}	
 	.form_center {
      position: absolute;
@@ -23,7 +26,7 @@
      transform: translate(-50%,-50%);
    }
    table{
-   	box-shadow: 0px 0px 20px #4B4B4B;
+   	box-shadow: 0px 0px 50px #262626;
    }
    td{
    	background-color: rgba(255,255,255,0.9);
@@ -48,6 +51,7 @@
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
+                <li><p class="navbar-text"><a href="upload.php"><button type="button" class="btn btn-primary btn-sm">Качи песен</button></a></p></li>
                 <li><p class="navbar-text"> <?php echo $_SESSION['usr_name']; ?></p></li>
                 <li><a href="logout.php">Log Out</a></li>
                 <?php } else { ?>
