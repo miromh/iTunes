@@ -15,6 +15,11 @@ if (isset($_SESSION['usr_name'])) {
                           }  
                       }
             }
+
+
+  if ($is_admin == 1) {
+            	
+                    
 ?>
 
 <div class="form_center">
@@ -22,15 +27,22 @@ if (isset($_SESSION['usr_name'])) {
         <div class="row">
             <div class="col-md-4 col-md-offset-4 well">
             	<p class="lead">Наистина ли искате да изтриете файла ?</p>
-</div>
-</div>
-</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 
  <?php
+ 	}else{
+	 	echo '<div class="form_center">';
+		echo '<div class="alert alert-danger"><strong>ВНИМАНИЕ! </strong>Нямате правo да триете файлове</div>';
+		echo '</div>';
+ 	}
+}else{
+		echo '<div class="form_center">';
+		echo '<div class="alert alert-danger"><strong>ВНИМАНИЕ! </strong>Нямате правo да триете файлове</div>';
+		echo '</div>';
 }    
-
-
- ?>
+?>
 
