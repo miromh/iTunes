@@ -3,7 +3,7 @@ session_start();
 include_once 'includes/db_connect.php';
 include 'includes/header.php';
  
-if (isset($_SESSION['usr_name'])) {
+if (isset($_SESSION['usr_name'])) {//check about login
       $id = $_SESSION['usr_id'];
       $admin_check_query = "SELECT `is_admin` FROM `users` WHERE `id` = $id";
       $chk_result = mysqli_query($con, $admin_check_query);
@@ -20,7 +20,7 @@ if (isset($_SESSION['usr_name'])) {
             	
                     
  		if (isset($_POST['confirm_delete'])) {
- 			if ($_POST['confirm_delete'] == 'Изтрий') {
+ 			if ($_POST['confirm_delete'] == 'Изтрий') { //confirm delete
  				$delete_id = $_POST['id'];
  				$date = date('Y-m-d');
  				$file_path = "";
@@ -34,7 +34,7 @@ if (isset($_SESSION['usr_name'])) {
 
  				$delete_query = "UPDATE `songs` SET `date_deleted`= '$date' WHERE `song_id` = $delete_id";
  				mysqli_query($con, $delete_query);
- 				unlink($file_path);
+ 				unlink($file_path);//delete file from file sistem
 				echo '<div class="form_center">';
         echo '<img src="images/done.png">';
         echo '</div>';

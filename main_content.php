@@ -37,11 +37,13 @@ $arrow_down = '&#8593';
   
 if(isset($_GET['uploader_id'])){
       $uploader_id = $_GET['uploader_id'];
-      $date = '?sort=date_desc';
-      $artist = '?sort=artist_desc';
+      $date = '?sort=date_desc';   //add url link
+      $artist = '?sort=artist_desc';	
       $song = '?sort=song_desc';
       $uploader = '?sort=uploader_desc';
       $dl = '?sort=dl_desc';
+	  
+	 //filter by uploader
       $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null AND `uploader_id` = $uploader_id ORDER BY `songs`.`date_uploaded` DESC";
   }else{
 
@@ -54,8 +56,8 @@ if(isset($_GET['uploader_id'])){
                       $dl = '?sort=dl_desc';
                       $rating = '?sort=rating_desc';
 
-                    $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`song_id` DESC";
-                  
+                    $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`song_id` DESC"; 
+                 
                   }elseif ($_GET['sort'] == 'date_asc') {
                       
                       $date = '?sort=date_desc';
@@ -65,7 +67,7 @@ if(isset($_GET['uploader_id'])){
                       $dl = '?sort=dl_asc';
                       $rating = '?sort=rating_desc';
 
-                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`date_uploaded` ASC";
+                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`date_uploaded` ASC";//sorting by  date  asc
                   
                   }elseif ($_GET['sort'] == 'date_desc') {
                       
@@ -76,7 +78,7 @@ if(isset($_GET['uploader_id'])){
                       $dl = '?sort=dl_desc';
                       $rating = '?sort=rating_asc';
 
-                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`song_id` DESC";
+                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`date_uploaded` DESC";//sorting by  date  desc
 
                   }elseif($_GET['sort'] == 'artist_asc'){
                       
@@ -87,7 +89,7 @@ if(isset($_GET['uploader_id'])){
                       $dl = '?sort=dl_asc';
                       $rating = '?sort=rating_desc';
 
-                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`artist` ASC";
+                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`artist` ASC";//sorting by  artist  asc
 
                   }elseif($_GET['sort'] == 'artist_desc'){
                       
@@ -98,7 +100,7 @@ if(isset($_GET['uploader_id'])){
                       $dl = '?sort=dl_asc';
                       $rating = '?sort=rating_asc';
 
-                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`artist` DESC";
+                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`artist` DESC";//sorting by artist desc
 
                   }elseif($_GET['sort'] == 'song_asc'){
                       
@@ -109,7 +111,7 @@ if(isset($_GET['uploader_id'])){
                       $dl = '?sort=dl_desc';
                       $rating = '?sort=rating_desc';
 
-                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`song` DESC";
+                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`song` DESC";//sorting by  song  desc
 
                   }elseif($_GET['sort'] == 'song_desc'){
                       
@@ -120,7 +122,7 @@ if(isset($_GET['uploader_id'])){
                       $dl = '?sort=dl_asc';
                       $rating = '?sort=rating_asc';
 
-                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`song` ASC";
+                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`song` ASC"; //sorting by  date  asc
 
                   }elseif($_GET['sort'] == 'dl_asc'){
                       
@@ -131,7 +133,7 @@ if(isset($_GET['uploader_id'])){
                       $dl = '?sort=dl_desc';
                       $rating = '?sort=rating_desc';
 
-                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`downloads` ASC";
+                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`downloads` ASC"; //sorting by  downloads asc
 
                   }elseif($_GET['sort'] == 'dl_desc'){
                       
@@ -142,7 +144,7 @@ if(isset($_GET['uploader_id'])){
                       $dl = '?sort=dl_asc';
                       $rating = '?sort=rating_asc';
 
-                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`downloads` DESC";
+                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER BY `songs`.`downloads` DESC";//sorting by  date  desc
                   }elseif($_GET['sort'] == 'rating_asc'){
                       
                       $date = '?sort=date_desc';
@@ -152,7 +154,7 @@ if(isset($_GET['uploader_id'])){
                       $dl = '?sort=dl_desc';
                       $rating = '?sort=rating_desc';
 
-                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER by `rating`/`num_votes` ASC";
+                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER by `rating`/`num_votes` ASC"; //sorting by  votes  asc
 
                   }elseif($_GET['sort'] == 'rating_desc'){
                       
@@ -163,7 +165,7 @@ if(isset($_GET['uploader_id'])){
                       $dl = '?sort=dl_asc';
                       $rating = '?sort=rating_asc';
 
-                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER by `rating`/`num_votes` DESC";
+                      $read_query = "SELECT * FROM `songs` JOIN users ON songs.uploader_id = users.id WHERE songs.date_deleted is null ORDER by `rating`/`num_votes` DESC";//sorting by  votes desc
 
                   }
       }              
@@ -177,7 +179,7 @@ if(isset($_GET['uploader_id'])){
 ?>  
  <tr>
     
-
+/* Checking for administrator */
     <?php 
       if ($is_admin == 1) {
                     echo '<td class="bg-warning"></td>'; 
@@ -185,8 +187,7 @@ if(isset($_GET['uploader_id'])){
     
                            
     ?>
-
-    
+/* navigation for sorting   */  
     <td class="bg-warning">
     <strong><a href="index.php<?=$date?>">Качено на 
       <?php 
@@ -256,13 +257,14 @@ if(isset($_GET['uploader_id'])){
   <td class="bg-warning"><strong class="text-primary">Слушай | Свали</strong></td></tr>
  
 <?php
+
       if (mysqli_num_rows($result) >0) { 
           while($row = mysqli_fetch_assoc($result)){
                 $normal_date = strtotime( $row['date_uploaded']);
                 $row['date_uploaded'] = date('d.m.Y', $normal_date);
                 $rating = 0;
                 if ($row['rating'] != 0 && $row['num_votes'] != 0) {
-                   $rating = $row['rating']/$row['num_votes'];
+                   $rating = $row['rating']/$row['num_votes'];//calculate rating
                 }
                 $star = 0;
                 if ($rating > 0 && $rating < 2) {
@@ -277,9 +279,8 @@ if(isset($_GET['uploader_id'])){
                   $star = 5;
                 }
                 echo '<tr>';
-
                   if ($is_admin == 1) {
-                    echo '<td><a href="delete_view.php?delete_id=' . $row['song_id'] . '"><img src="images/delete.png"></td>'; 
+                    echo '<td><a href="delete_view.php?delete_id=' . $row['song_id'] . '"><img src="images/delete.png"></td>'; //add column for delete by admin
                   }
 
   
@@ -308,11 +309,11 @@ if(isset($_GET['uploader_id'])){
 
 
 </table>
-<!-- </div> -->
+
 </div>
 
 <?php 
-}else{
+}else{//should login
 	header("Location: index.php");
 }
 
