@@ -81,7 +81,7 @@ class getID3
 	public $option_tag_lyrics3       = false;  // Read and process Lyrics3 tags
 	public $option_tag_apetag        = false;  // Read and process APE tags
 	public $option_tags_process      = false;  // Copy tags to root key 'tags' and encode to $this->encoding
-	public $option_tags_html         = false;  // Copy tags to root key 'tags_html' properly translated from various encodings to HTML entities
+	public $option_tags_html         = true;  // Copy tags to root key 'tags_html' properly translated from various encodings to HTML entities
 
 	// public: Optional tag/comment calucations
 	public $option_extra_info        = false;  // Calculate additional info such as bitrate, channelmode etc
