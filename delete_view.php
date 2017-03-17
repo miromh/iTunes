@@ -28,7 +28,7 @@ if (isset($_SESSION['usr_name'])) {
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4 well">
-           /*  confirm for delete file */
+           <!-- confirm for delete file !-->
             	<p class="lead">Наистина ли искате да изтриете файла ?</p>
             	<p>
 				

@@ -179,7 +179,7 @@ if(isset($_GET['uploader_id'])){
 ?>  
  <tr>
     
-/* Checking for administrator */
+<!--Checking for administratoR!-->
     <?php 
       if ($is_admin == 1) {
                     echo '<td class="bg-warning"></td>'; 
@@ -187,7 +187,7 @@ if(isset($_GET['uploader_id'])){
     
                            
     ?>
-/* navigation for sorting   */  
+<!--navigation for sorting   !--> 
     <td class="bg-warning">
     <strong><a href="index.php<?=$date?>">Качено на 
       <?php 

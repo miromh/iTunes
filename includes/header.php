@@ -51,7 +51,7 @@
 
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
-        <div class="navbar-header">
+        <div class="navbar-header"><!--nav menu!-->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -62,7 +62,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
-                <?php if (isset($_SESSION['usr_id'])) { ?>
+                <?php if (isset($_SESSION['usr_id'])) { ?><!--CHECKING FOR LOGIN!-->
                 <li><p class="navbar-text"><a href="upload.php"><button type="button" class="btn btn-primary btn-sm">Качи песен</button></a></p></li>
                 <li><p class="navbar-text"> <a href="index.php?uploader_id=<?=$_SESSION['usr_id']?>"><?php echo $_SESSION['usr_name']; ?></a></p></li>
                 <li><a href="logout.php">Log Out</a></li>
